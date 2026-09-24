@@ -65,4 +65,9 @@ public class GewinnView extends JFrame {
         p.add(feld, BorderLayout.CENTER);
         return p;
     }
+    public JLabel getRundenLabel() { return rundenLabel; }
+    public JLabel getPunkteLabel() { return punkteLabel; }
+    public JTextField getEingabeFeld() { return eingabeFeld; }
+    public JTextField getComputerFeld() { return computerFeld; }
+    public JButton getNochEinmalButton() { return nochEinmalButton; }
 }
