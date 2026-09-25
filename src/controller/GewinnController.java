@@ -45,6 +45,10 @@ public class GewinnController implements ActionListener {
         model.berechneComputerZahl();
         model.berechneRunde(zahl);
 
+        // Anzeige nach der Auswertung aktualisieren
+        view.getEingabeFeld().setEditable(false);
+        view.getNochEinmalButton().setEnabled(true);
+
         view.getComputerFeld().setText("" + model.getComputerZahl());
         view.getPunkteLabel().setText("" + model.getGesamtPunkte());
         if (model.hatGewonnen()) {
@@ -62,6 +66,8 @@ public class GewinnController implements ActionListener {
         view.getEingabeFeld().setText("");
         view.getComputerFeld().setText("");
         view.getRundenLabel().setText("Tippe eine Zahl von 1 bis 9");
+        view.getEingabeFeld().setEditable(true); //felder nocheinmal freigebn
+        view.getNochEinmalButton().setEnabled(false); // nocheinmal button deaktiviert
     }
 
     public static void main(String[] args) {
