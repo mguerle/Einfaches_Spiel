@@ -2,6 +2,7 @@ package controller;
 
 import model.GewinnModel;
 import view.GewinnView;
+import java.awt.Color;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -44,7 +45,8 @@ public class GewinnController implements ActionListener {
 
         model.berechneComputerZahl();
         model.berechneRunde(zahl);
-
+        // Anzeige nach der Auswertung aktualisieren
+        Color farbe = model.getRundenErgebnis() > 0 ? Color.GREEN : Color.RED;
         view.getComputerFeld().setText("" + model.getComputerZahl());
         view.getPunkteLabel().setText("" + model.getGesamtPunkte());
         if (model.hatGewonnen()) {
@@ -56,6 +58,8 @@ public class GewinnController implements ActionListener {
         } else {
             view.getRundenLabel().setText("" + model.getRundenErgebnis());
         }
+        view.getRundenLabel().setBackground(farbe); //setzt die Farbe auf grün oder rot
+        view.getPunkteLabel().setBackground(farbe);
     }
 
     private void zuruecksetzen() {
