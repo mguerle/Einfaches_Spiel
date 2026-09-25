@@ -2,6 +2,7 @@ package controller;
 
 import model.GewinnModel;
 import view.GewinnView;
+import java.awt.Color;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -46,6 +47,7 @@ public class GewinnController implements ActionListener {
         model.berechneRunde(zahl);
 
         // Anzeige nach der Auswertung aktualisieren
+        Color farbe = model.getRundenErgebnis() > 0 ? Color.GREEN : Color.RED;
         view.getEingabeFeld().setEditable(false);
         view.getNochEinmalButton().setEnabled(true);
 
@@ -60,6 +62,8 @@ public class GewinnController implements ActionListener {
         } else {
             view.getRundenLabel().setText("" + model.getRundenErgebnis());
         }
+        view.getRundenLabel().setBackground(farbe);
+        view.getPunkteLabel().setBackground(farbe);
     }
 
     private void zuruecksetzen() {
